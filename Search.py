@@ -25,3 +25,16 @@ print(binarySearch(nums, 75))
 print(binarySearch(words, "fish"))
 print(binarySearch(words, "at"))
 print(binarySearch(unsorted, 70))
+
+def linearsearch(array,item):
+    for data in range(len(array)):
+        if item == array[data]:
+            return data
+    return -1
+
+print(linearsearch(nums, 100))
+print(linearsearch(nums, 75))
+print(linearsearch(words, "fish"))
+print(linearsearch(words, "at"))
+print(linearsearch(unsorted, 70))
+

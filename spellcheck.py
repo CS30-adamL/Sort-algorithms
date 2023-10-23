@@ -4,6 +4,7 @@
 # 2: aliceWords: a list containing all of the words from "AliceInWonderland.txt"
 
 import re  # Needed for splitting text with a regular expression
+import Search
 
 
 def main():
@@ -11,10 +12,19 @@ def main():
     dictionary = loadWordsFromFile("data-files/dictionary.txt")
     aliceWords = loadWordsFromFile("data-files/AliceInWonderLand.txt")
 
+    search(dictionary,input("search for: "),input("linear or binary (l/b)"))
     # Print first 50 values of each list to verify contents
     print(dictionary[0:50])
     print(aliceWords[0:50])
 # end main()
+
+def search(array,item,LorB):
+    if LorB == "l":
+        Search.linearsearch(array,item)
+    else:
+        Search.binarySearch(array,item)
+
+
 
 
 def loadWordsFromFile(fileName):
