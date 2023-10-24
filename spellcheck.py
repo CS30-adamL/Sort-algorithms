@@ -5,25 +5,78 @@
 
 import re  # Needed for splitting text with a regular expression
 import Search
-
+import time
 
 def main():
     # Load data files into lists
     dictionary = loadWordsFromFile("data-files/dictionary.txt")
     aliceWords = loadWordsFromFile("data-files/AliceInWonderLand.txt")
+    loop = True
+    while loop:
+        #python print menu
+        print("\nMAIN MENU")
+        print("1: Spell Check a Word")
+        print("2: Spell Check Alice In Wonderland")
+        print("4: EXIT")
 
-    search(dictionary,input("search for: "),input("linear or binary (l/b)"))
+        # Get Menu Selection from User
+
+        selection = input("Enter Selection (1-4): ")
+
+
+        # Take Action Based on Menu Selection
+
+        if selection == "1":
+            spell_check_word(dictionary)
+        elif selection == "2":
+            spell_check_text(aliceWords,dictionary)
+        elif selection == "3":
+            print("\nOption 3")
+        elif selection == "4":
+            print("\nEXIT")
+            loop = False
+
+
+
+    
     # Print first 50 values of each list to verify contents
-    print(dictionary[0:50])
-    print(aliceWords[0:50])
+    # print(dictionary[0:50])
+    # print(aliceWords[0:50])
 # end main()
+
+def spell_check_word(dictionary):
+    word = input("search for: ")
+    LorB = input("linear or binary (l/b)")
+    start_time = time.time()
+    found = search(dictionary,word,LorB)
+    end_time = time.time()
+    total = end_time - start_time
+    if found == -1:
+        print(f"{word} not found in dictionary. ({total} seconds)")
+    else:
+        print(f"{dictionary[found]} is IN the dictionary at position {found}. ({total} seconds) ")
+
 
 def search(array,item,LorB):
     if LorB == "l":
-        Search.linearsearch(array,item)
+        found = Search.linearsearch(array,item)
+        return found
     else:
-        Search.binarySearch(array,item)
+        found = Search.binarySearch(array,item)
+        return found
 
+def spell_check_text(words,dictionary):
+    LorB = input("linear or binary (l/b)")
+    words = [x.lower() for x in words]
+    not_found = 0
+    start_time = time.time()
+    for word in words:
+        test = search(dictionary,word,LorB)
+        if test == -1:
+            not_found +=1
+    end_time = time.time()
+    total = end_time - start_time
+    print(f"Number of words NOT found in dictionary: {not_found}. ({total} seconds)")
 
 
 
