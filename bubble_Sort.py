@@ -7,12 +7,7 @@ def bubbleSort(list):
     for n in range(len(list)-1):
         while n < len(list)-l:
             if list[n] > list[n+1]:
-                first_ele = list[n]
-                second_ele = list[n+1]
-                del list[n]
-                del list[n]
-                list.insert(n,second_ele)
-                list.insert(n+1,first_ele)
+                (list[n], list[n+1]) = (list[n+1], list[n])
             n+=1
         l +=1
 
@@ -20,7 +15,4 @@ def bubbleSort(list):
 bubbleSort(nums)
 print(nums)
 bubbleSort(words)
-
-
-
 print(words)
