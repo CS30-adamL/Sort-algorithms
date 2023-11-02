@@ -46,7 +46,7 @@ def Average():
 def make_rand_list(newlist):
     
     for num in range(0,41):
-        randval = random.randrange(0,1000)
+        randval = random.randrange(0,100)
         newlist.append(randval)
     newlist2 = newlist.copy()
     return newlist,newlist2
