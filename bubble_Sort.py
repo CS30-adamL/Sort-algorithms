@@ -1,5 +1,5 @@
-nums = [10, 70, 30, 100, 40, 45, 90, 80, 85]
-words = ["dog","at", "good", "eye", "cat", "ball", "fish"]
+# nums = [10, 70, 30, 100, 40, 45, 90, 80, 85]
+# words = ["dog","at", "good", "eye", "cat", "ball", "fish"]
 
 
 def bubbleSort(list):
@@ -10,7 +10,7 @@ def bubbleSort(list):
 
 
 
-bubbleSort(nums)
-print(nums)
-bubbleSort(words)
-print(words)
+# bubbleSort(nums)
+# print(nums)
+# bubbleSort(words)
+# print(words)

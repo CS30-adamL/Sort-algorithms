@@ -1,5 +1,5 @@
-nums = [10, 70, 30, 100, 40, 45, 90, 80, 85]
-words = ["dog","at", "good", "eye", "cat", "ball", "fish"]
+# nums = [10, 70, 30, 100, 40, 45, 90, 80, 85]
+# words = ["dog","at", "good", "eye", "cat", "ball", "fish"]
 
 
 
@@ -14,8 +14,8 @@ def insertion_Sort(anArray):
             move -= 1
 
 
-insertion_Sort(nums)
-insertion_Sort(words)
+# insertion_Sort(nums)
+# insertion_Sort(words)
 
-print(nums)
-print(words)
+# print(nums)
+# print(words)
