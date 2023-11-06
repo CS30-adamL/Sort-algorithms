@@ -4,13 +4,14 @@
 # 2: aliceWords: a list containing all of the words from "AliceInWonderland.txt"
 
 import re  # Needed for splitting text with a regular expression
-import Search
+# import Alice_spellCheck.Search_types as Search_types
+import Search_types
 import time
 
 def main():
     # Load data files into lists
-    dictionary = loadWordsFromFile("data-files/dictionary.txt")
-    aliceWords = loadWordsFromFile("data-files/AliceInWonderLand.txt")
+    dictionary = loadWordsFromFile("Alice_spellCheck\data-files\dictionary.txt")
+    aliceWords = loadWordsFromFile("Alice_spellCheck\data-files\AliceInWonderLand.txt")
     loop = True
     while loop:
         #python print menu
@@ -59,10 +60,10 @@ def spell_check_word(dictionary):
 
 def search(array,item,LorB):
     if LorB == "l":
-        found = Search.linearsearch(array,item)
+        found = Search_types.linearsearch(array,item)
         return found
     else:
-        found = Search.binarySearch(array,item)
+        found = Search_types.binarySearch(array,item)
         return found
 
 def spell_check_text(words,dictionary):

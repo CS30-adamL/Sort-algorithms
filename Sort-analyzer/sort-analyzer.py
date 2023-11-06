@@ -22,7 +22,7 @@ randomData = loadDataArray("Sort-analyzer/data-files/random-values.txt")
 reversedData = loadDataArray("Sort-analyzer/data-files/reversed-values.txt")
 nearlySortedData = loadDataArray("Sort-analyzer/data-files/nearly-sorted-values.txt")
 fewUniqueData = loadDataArray("Sort-analyzer/data-files/few-unique-values.txt")
-array_types = [randomData,reversedData,nearlySortedData,fewUniqueData]
+array_types = [(randomData, "RandomData"),(reversedData,"ReversedData"),(nearlySortedData,"NearlySortedData"),(fewUniqueData,"FewUniqueData")]
 sort_types = ["Selection Sort (normal way)","Bubble Sort","Insertion Sort","Selection Sort (my Way)"]
 
 # VERIFY LOADED DATA BY PRINTING FIRST 50 ELEMENTS
@@ -56,48 +56,20 @@ def sortspeed(list,type):
     # print(f'list sorted with {type} method: ({total} seconds)')
     return total
 
-def Average(array,type):
+def Average(array,Sort_type):
     average = 0
     reps = 5
     for _ in range(0,reps):
         
-        copy = array.copy()
-        speed = sortspeed(copy,type)
+        copy = array[0].copy()
+        speed = sortspeed(copy,Sort_type)
         average += speed
     average = average/reps
-    print(f"\nThe average speed of {type}: {average} || Array Type: {}")
+    print(f"The average speed of {Sort_type}: {average} || Array Type: {array[1]}")
     return (type,average) 
 
 for type in sort_types:
+    print("")
     for array in array_types:
         Average(array,type)
-
-
-def percent_diff(array,type1,type2):
-    list1 = array
-    list2 = array
-    method1 = sortspeed(list1,type1)
-    method2 = sortspeed(list2,type2)
-    percent = ((method1/method2)*100)//1
-    print(f"\nMethod 1:{method1} / Method 2:{method2} ={method1/method2}, (~{percent}%)\nMethod 1 is {percent/100} times faster than Method 2.\n")
-    return percent/100
-
-# def Average():
-#     average = 0
-#     for _ in range(0,60):
-#         newlist = []
-#         newlist,newlist2 = make_rand_list(newlist)
-#         speed = percent_diff(newlist,newlist2)
-#         average += speed
-#     average = average/59
-#     return average
-
-
-
-def make_rand_list(newlist):
     
-    for num in range(0,1001):
-        randval = random.randrange(0,1000)
-        newlist.append(randval)
-    newlist2 = newlist.copy()
-    return newlist,newlist2
